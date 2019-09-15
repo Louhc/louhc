@@ -1,5 +1,5 @@
 ---
-title: 「分块系列」数列分块入门3 解题报告
+title: loj6279 数列分块入门 3 解题报告
 author: louhc
 avatar: https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/custom/avatar.jpg
 authorLink: louhc.github.io
@@ -10,13 +10,16 @@ date: 2019-01-23 08:20:10
 comments: true
 tags: 
  - 分块
-keywords: 分块
-description: 分块系列-数列分块入门3 区间加法,区间求前驱.
+ - loj
+keywords: 
+description: loj6279
 photos: https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/15.jpg
 mathjax: true
 ---
 
-# [数列分块入门3](https://loj.ac/problem/6279)
+# LINK
+
+[loj6279](https://loj.ac/problem/6279)
 
 # 题意概括
 

@@ -1,5 +1,5 @@
 ---
-title: 「分块系列」数列分块入门2 解题报告
+title: loj6278 数列分块入门 2 解题报告
 author: louhc
 avatar: https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/custom/avatar.jpg
 authorLink: louhc.github.io
@@ -10,13 +10,16 @@ date: 2019-01-23 08:20:05
 comments: true
 tags: 
  - 分块
-keywords: 分块
-description: 分块系列-数列分块入门2 区间加法,区间求小于一个数的个数
+ - loj
+keywords: 
+description: loj6278
 photos: https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/8.jpg
 mathjax: true
 ---
 
-# [数列分块入门2](https://loj.ac/problem/6278)
+# LINK
+
+[loj6278](https://loj.ac/problem/6278)
 
 # 题意概括
 
@@ -40,7 +43,7 @@ int n, m, a[MAXN], p[MAXN], b[500], mm;
 vector<int> v[500];
 int opt, l, r, c;
 
-int EF( vector<int> vec, int x ){//自力更生,手打二分万岁QAQ
+int EF( vector<int> vec, int x ){//自力更生,手打二分
 	int l, r, mid, ans(-1);
 	l = 0; r = vec.size() - 1;
 	while( l <= r ){

@@ -46,121 +46,61 @@ homePageSortType: -1
 homeArticleShown: 10
 # 背景图片 更好的修改
 bg:
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/0.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/1.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/2.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/3.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/4.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/5.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/6.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/7.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/8.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/9.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/10.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/11.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/12.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/13.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/14.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/15.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/16.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/17.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/18.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/19.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/20.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/21.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/22.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/23.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/24.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/25.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/26.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/27.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/28.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/29.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/30.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/31.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/32.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/33.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/34.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/35.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/36.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/37.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/38.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/39.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/40.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/41.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/42.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/43.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/44.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/45.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/46.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/47.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/48.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/49.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/50.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/51.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/52.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/53.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/54.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/55.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/56.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/57.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/58.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/59.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/60.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/61.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/62.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/63.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/64.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/65.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/66.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/67.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/68.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/69.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/70.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/71.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/72.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/73.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/74.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/75.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/76.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/77.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/78.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/79.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/80.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/81.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/82.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/83.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/84.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/85.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/86.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/87.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/88.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/89.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/90.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/91.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/92.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/93.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/94.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/95.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/96.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/97.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/98.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/99.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/100.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/101.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/102.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/103.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/104.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/105.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/106.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/107.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/108.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/109.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/110.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/111.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/112.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/113.jpg
-- https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/cover/114.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/0.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/1.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/2.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/3.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/4.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/5.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/6.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/7.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/8.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/9.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/10.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/11.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/12.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/13.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/14.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/15.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/16.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/17.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/18.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/19.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/20.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/21.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/22.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/23.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/24.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/25.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/26.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/27.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/28.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/29.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/30.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/31.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/32.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/33.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/34.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/35.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/36.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/37.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/38.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/39.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/40.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/41.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/42.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/43.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/44.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/45.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/46.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/47.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/48.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/49.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/50.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/51.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/52.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/53.jpg
+  - https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/54.jpg
 
 
 # 背景图片样式 空 原图效果 filter-dim 阴影 filter-grid 横条 filter-dot 点点
@@ -199,13 +139,10 @@ donate:
   wechatSQ: /img/custom/donate/WeChanSQ.jpg
 
 # 视频地址为https://cdn.jsdelivr.net/gh/honjun/hojun@1.2/Unbroken.mp4，配置如下
-# https://tiger.cdnja.co/v/pe/PEl0.mp4?secure=BhaLv0JQXqXJC_G47fqGDA&expires=1566131400
 movies:
-#  url: https://tiger.cdnja.co/v/pe
-#  name: PEl0.mp4?secure=BhaLv0JQXqXJC_G47fqGDA&expires=1566131400
   url: https://cdn.jsdelivr.net/gh/louhc/cdn@1.1
-  name: dalabengba.mp4
   # 多个视频用逗号隔开，随机获取。支持的格式目前已知MP4,Flv。其他的可以试下，不保证有用
+  name: dalabengba.mp4
 
 aplayer: 
   id: 2912437347

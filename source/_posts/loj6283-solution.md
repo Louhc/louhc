@@ -1,5 +1,5 @@
 ---
-title: 「分块系列」数列分块入门7 解题报告
+title: loj6283 数列分块入门 7 解题报告
 author: louhc
 avatar: https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/custom/avatar.jpg
 authorLink: louhc.github.io
@@ -10,13 +10,16 @@ date: 2019-01-23 08:20:30
 comments: true
 tags: 
  - 分块
-keywords: 分块
-description: 分块系列-数列分块入门7 区间乘法,区间加法,单点询问.
+ - loj
+keywords: 
+description: loj6283
 photos: https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/39.jpg
 mathjax: true
 ---
 
-# [数列分块入门7](https://loj.ac/problem/6283)
+# LINK
+
+[loj6283](https://loj.ac/problem/6283)
 
 # 题意概括
 

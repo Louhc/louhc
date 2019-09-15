@@ -1,5 +1,5 @@
 ---
-title: 「分块系列」数列分块入门8 解题报告
+title: loj6284 数列分块入门 8 解题报告
 author: louhc
 avatar: https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/custom/avatar.jpg
 authorLink: louhc.github.io
@@ -10,13 +10,16 @@ date: 2019-01-23 08:20:35
 comments: true
 tags: 
  - 分块
-keywords: 分块
-description: 分块系列-数列分块入门8 区间修改,区间计数.
+ - loj
+keywords: 
+description: loj6284
 photos: https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/50.jpg
 mathjax: true
 ---
 
-# [数列分块入门8](https://loj.ac/problem/6284)
+# LINK
+
+[loj6284](https://loj.ac/problem/6284)
 
 # 题意概括
 

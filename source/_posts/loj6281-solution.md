@@ -1,5 +1,5 @@
 ---
-title: 「分块系列」数列分块入门5 解题报告
+title: loj6281 数列分块入门 5 解题报告
 author: louhc
 avatar: https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/custom/avatar.jpg
 authorLink: louhc.github.io
@@ -10,13 +10,16 @@ date: 2019-01-23 08:20:20
 comments: true
 tags: 
  - 分块
-keywords: 分块
-description: 分块系列-数列分块入门5 区间开方,区间求和.
+ - loj
+keywords: 
+description: loj6281
 photos: https://cdn.jsdelivr.net/gh/louhc/cdn@1.1/img/cover/17.jpg
 mathjax: true
 ---
 
-# [数列分块入门5](https://loj.ac/problem/6281)
+# LINK
+
+[loj6281](https://loj.ac/problem/6281)
 
 # 题意概括
 
