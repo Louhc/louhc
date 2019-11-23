@@ -38,7 +38,8 @@ mathjax: true
 ```
 如果你来做这道题,说明你已经把GCDMAT简单版切了。
 你会得到这样的柿子——
-$$s(x,y)=\sum^{x}_{i=1} \sum_{j=1}^{y}\gcd(i,j)=\sum_{i=1}^{\min(x,y)}\varphi(i)\times\lfloor x/i\rfloor\times\lfloor y/i \rfloor$$
+
+$$s(x,y)=\sum_{i=1}^x \sum_{j=1}^{y}\gcd(i,j)=\sum_{i=1}^{\min(x,y)}\varphi(i)\times\lfloor x/i\rfloor\times\lfloor y/i \rfloor$$
 
 $$ans=s(a2,b2)+s(a1,b1)-s(a2,b1)-s(a1,b2)$$
 

@@ -8,4 +8,9 @@ photos: https://cdn.jsdelivr.net/gh/louhc/cdn@latest/img/banner/lab.jpg
 mathjax: true
 ---
 
-# adkhc
+# test
+
+$$
+abc\\
+abc
+$$
