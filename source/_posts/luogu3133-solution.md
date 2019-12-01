@@ -20,7 +20,7 @@ mathjax: true
 
 # LINK
 
-[luogu3133](https://www.luogu.org/problemnew/show/P3133)
+[luogu3133](https://www.luogu.com.cn/problemnew/show/P3133)
 [bzoj4510](https://www.lydsy.com/JudgeOnline/problem.php?id=4510)
 
 # 思路

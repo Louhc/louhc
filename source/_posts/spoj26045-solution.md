@@ -20,7 +20,7 @@ mathjax: true
 # LINK
 
 [spoj GCDMAT2](https://www.spoj.com/problems/GCDMAT2/)
-[luogu remote judge SP26045](https://www.luogu.org/problem/SP26045)
+[luogu remote judge SP26045](https://www.luogu.com.cn/problem/SP26045)
 
 这大概是我做过的最毒瘤的卡常题了。。。
 
@@ -90,7 +90,7 @@ SPOJ上跑的最快的两位神仙——`Min_25`与`liouzhou_101`
 
 1. `liouzhou_101`每次先预处理出所有除法,归并排序、去重,可以减少很多次除法运算。
 2. `Min_25`最开始预处理出`1~N`的倒数,然后把除法改成乘法。
-![](https://cdn.luogu.org/upload/pic/56377.png)
+![](https://cdn.luogu.com.cn/upload/pic/56377.png)
 然后再尽量减小运算的次数就OK了。(为了卡常数码风变得十分鬼畜,我都认不出我的代码了/xk)
 
 <script src="https://ideone.com/e.js/muZUDQ" type="text/javascript" ></script>

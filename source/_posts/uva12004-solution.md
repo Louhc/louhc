@@ -20,7 +20,7 @@ mathjax: true
 # LINK
 
 [UVA12004](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=242&page=show_problem&problem=3155)
-[luogu remote judge UVA12004](https://www.luogu.org/problem/UVA12004)
+[luogu remote judge UVA12004](https://www.luogu.com.cn/problem/UVA12004)
 
 # 思路
 

@@ -20,7 +20,7 @@ mathjax: true
 # LINK
 
 [spoj PWRANDMOD](https://www.spoj.com/problems/PWRANDMOD/)
-[luogu remote judge SP26368](https://www.luogu.org/problemnew/show/SP26368)
+[luogu remote judge SP26368](https://www.luogu.com.cn/problemnew/show/SP26368)
 
 # 思路
 

@@ -19,7 +19,7 @@ mathjax: true
 
 # LINK
 
-[洛谷P1343](https://www.luogu.org/problem/P1343)
+[洛谷P1343](https://www.luogu.com.cn/problem/P1343)
 
 # 思路
 很明显，1是源点，n是汇点，直接网络最大流模板即可。

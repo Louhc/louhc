@@ -20,13 +20,13 @@ mathjax: true
 
 # LINK
 
-[洛谷P4377](https://www.luogu.org/problem/P4377)
+[洛谷P4377](https://www.luogu.com.cn/problem/P4377)
 
 # 思路I
 
 很简单的0/1分数规划与背包DP结合。。。
 
-0/1分数规划老套路（安利[机房巨佬zzq博客](https://www.luogu.org/blog/yestoday/post-01-fen-shuo-gui-hua-yang-xie)_还上了洛谷日报$QAQ$_）——>二分答案，条件$\sum (ti \times Ans - wi) \ge 0$
+0/1分数规划老套路（安利[机房巨佬zzq博客](https://www.luogu.com.cn/blog/yestoday/post-01-fen-shuo-gui-hua-yang-xie)_还上了洛谷日报$QAQ$_）——>二分答案，条件$\sum (ti \times Ans - wi) \ge 0$
 
 但是，我们注意到$\sum wi$可能会很大，所以我们不能直接弄动态规划。
 

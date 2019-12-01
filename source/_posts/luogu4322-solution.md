@@ -20,7 +20,7 @@ mathjax: true
 
 # LINK
 
-[洛谷P4322](https://www.luogu.org/problem/P4322)
+[洛谷P4322](https://www.luogu.com.cn/problem/P4322)
 
 # 思路
 

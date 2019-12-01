@@ -20,7 +20,7 @@ mathjax: true
 # LINK
 
 [spoj BUBBLESORT](https://www.spoj.com/problems/BUBBLESORT/)
-[luogu remote judge SP25784](https://www.luogu.org/problem/SP25784)
+[luogu remote judge SP25784](https://www.luogu.com.cn/problem/SP25784)
 
 # 思路
 

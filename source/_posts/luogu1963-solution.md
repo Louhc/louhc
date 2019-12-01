@@ -19,7 +19,7 @@ mathjax: true
 
 # LINK
 
-[洛谷P1963](https://www.luogu.org/problem/P1963)
+[洛谷P1963](https://www.luogu.com.cn/problem/P1963)
 
 # 思路
 

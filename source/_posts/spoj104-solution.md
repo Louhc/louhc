@@ -21,7 +21,7 @@ mathjax: true
 # LINK
 
 [spoj HIGH](https://www.spoj.com/problems/HIGH/)
-[luogu remote judge SP104](https://www.luogu.org/problem/SP104)
+[luogu remote judge SP104](https://www.luogu.com.cn/problem/SP104)
 
 # 前置芝士
 

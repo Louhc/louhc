@@ -19,7 +19,7 @@ mathjax: true
 
 # LINK
 
-[洛谷P3911](https://www.luogu.org/problem/P3911)
+[洛谷P3911](https://www.luogu.com.cn/problem/P3911)
 
 # 思路
 

@@ -28,7 +28,7 @@ T3、T4 一个DP 一个暴力（虽然不是正解） 也就可以过了
 
 **扯入正题**  
 
-# T1 [标题统计](https://www.luogu.org/problemnew/show/P5015)
+# T1 [标题统计](https://www.luogu.com.cn/problemnew/show/P5015)
 
 这道题~~十分的水~~，没有什么技术含量，随便怎么搞都可以过。
 
@@ -51,7 +51,7 @@ int main(){
 }
 ```
 
-# T2 [龙虎斗](https://www.luogu.org/problemnew/show/P5016)
+# T2 [龙虎斗](https://www.luogu.com.cn/problemnew/show/P5016)
 
 这道题没话说，只是题目长了点，好好理解一下也是不难的。
 我们可以预处理出两边阵营的气势和（别忘了加上“某一刻天降神兵”）然后枚举每个兵营，把你的兵加进去，算出之后两个阵营最终的气势，然后选出气势之差绝对值最小的哪个阵营就可以了。
@@ -96,7 +96,7 @@ int main(){
 }
 ```
 
-# T3 [摆渡车](https://www.luogu.org/problemnew/show/P5017) 
+# T3 [摆渡车](https://www.luogu.com.cn/problemnew/show/P5017) 
 
 看这道题的时候，我（相信大家也是这样）最先想到的是贪心，但是从数据范围可以看出，如果是贪心题，数据范围不会那么小（相信NOIP不会和Luogu月赛一样，2018 11月月赛 搞个几百大小数据骗我们用DP，结果是贪心）。有些人会想(including me)，是不是在有人到达时才能发车呢？？？没想清楚就下手的话，就会浪费好多时间。仔细想想，很容易发现不一定要有人到达时发车，比如有时候，bus一回来，有个人等了2分钟，后面那个人还有INF(hh) min 才会来，如果有人到达时才能发车，那么bus将在INF min后才等到一个人，原来等了2分钟的那个人与司机等得花都谢了，所以这时候肯定是一回来就发车，虽然没有人刚好到达。
 
@@ -198,7 +198,7 @@ updata 2018/11/30 23:03: 总算填好坑了QAQ
 
 
 
-# T4 [对称二叉树](https://www.luogu.org/problemnew/show/P5018)
+# T4 [对称二叉树](https://www.luogu.com.cn/problemnew/show/P5018)
 
 这道题我也不知道正解是什么。我直接暴力+剪枝也跑过了所有测试点（数据太水？）
 

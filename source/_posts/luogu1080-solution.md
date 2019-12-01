@@ -20,7 +20,7 @@ mathjax: true
 
 # LINK
 
-[洛谷P1080](https://www.luogu.org/problem/P1080)
+[洛谷P1080](https://www.luogu.com.cn/problem/P1080)
 
 # 思路
 

@@ -20,7 +20,7 @@ mathjax: true
 
 # LINK
 
-[洛谷P4343](https://www.luogu.org/problem/P4343)
+[洛谷P4343](https://www.luogu.com.cn/problem/P4343)
 [bzoj4590](https://www.lydsy.com/JudgeOnline/problem.php?id=4590)
 
 # 思路

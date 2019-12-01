@@ -19,7 +19,7 @@ mathjax: true
 
 # LINK
 
-[luogu remote judge CF735D](https://www.luogu.org/problem/CF735D)
+[luogu remote judge CF735D](https://www.luogu.com.cn/problem/CF735D)
 [codeforces735D](http://codeforces.com/problemset/problem/735/D)
 
 # 思路

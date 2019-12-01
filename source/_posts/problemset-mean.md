@@ -19,14 +19,16 @@ mathjax: true
 
 # 题单 - 期望概率
 
-By louhc
+By @[louhc](https://louhc.github.io)
 
-## 入门篇
+## **入门篇**
 
-- [x] [NOWWCODER13231](https://ac.nowcoder.com/acm/problem/13231)  身体训练 [code.cpp](https://github.com/Louhc/code/blob/master/ac.nowcoder.com/acm/problem/13231/code.cpp)
-- [x] [NOWCODER14962](https://ac.nowcoder.com/acm/problem/14962)  Alice和Bob赌糖果 [code.cpp](https://github.com/Louhc/code/blob/master/ac.nowcoder.com/acm/problem/14962/code.cpp)
+- [NOWCODER13231](https://ac.nowcoder.com/acm/problem/13231)  身体训练 [code.cpp](https://github.com/Louhc/code/blob/master/ac.nowcoder.com/acm/problem/13231/code.cpp)
+- [NOWCODER20125](https://ac.nowcoder.com/acm/problem/20125) / [洛谷P3849](https://www.luogu.com.cn/problem/P3849) / TJOI2007 / JLOI2010 足彩投注 [code.cpp](https://github.com/Louhc/code/blob/master/ac.nowcoder.com/acm/problem/20125/code.cpp)
 
 ## **进阶篇**
 
-- [x] [NOWCODER21315](https://ac.nowcoder.com/acm/problem/21315) 农村连接城市 [code.cpp](https://github.com/Louhc/code/blob/master/ac.nowcoder.com/acm/problem/21315/code.cpp)
-
+- [NOWCODER21315](https://ac.nowcoder.com/acm/problem/21315) 农村连接城市 [code.cpp](https://github.com/Louhc/code/blob/master/ac.nowcoder.com/acm/problem/21315/code.cpp)
+- [NOWCODER20575](https://ac.nowcoder.com/acm/problem/20575) / SDOI2012 走迷宫 [code.cpp](https://github.com/Louhc/code/blob/master/ac.nowcoder.com/acm/problem/20575/code.cpp)
+- [NOWCODER14962](https://ac.nowcoder.com/acm/problem/14962)  Alice和Bob赌糖果 [code.cpp](https://github.com/Louhc/code/blob/master/ac.nowcoder.com/acm/problem/14962/code.cpp)
+- [NOWCODER20589](https://ac.nowcoder.com/acm/problem/20589) / [洛谷P4284](https://www.luogu.com.cn/problem/P4284) / SHOI2014 概率充电器 [code.cpp](https://github.com/Louhc/code/blob/master/ac.nowcoder.com/acm/problem/20589/code.cpp)

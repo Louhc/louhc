@@ -20,7 +20,7 @@ mathjax: true
 # LINK
 
 [codeforces1108C](http://codeforces.com/problemset/problem/1107/C)
-[luogu remote judge CF1108C](https://www.luogu.org/problem/CF1108C)
+[luogu remote judge CF1108C](https://www.luogu.com.cn/problem/CF1108C)
 
 # 思路
 

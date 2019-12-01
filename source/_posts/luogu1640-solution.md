@@ -19,7 +19,7 @@ mathjax: true
 
 # LINK
 
-[洛谷P1640](https://www.luogu.org/problem/P1640)
+[洛谷P1640](https://www.luogu.com.cn/problem/P1640)
 
 # 思路
 

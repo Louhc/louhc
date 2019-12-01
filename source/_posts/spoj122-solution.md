@@ -20,7 +20,7 @@ mathjax: true
 # LINK
 
 [spoj STEVE](https://www.spoj.com/problems/STEVE/)
-[luogu remote judge SP122](https://www.luogu.org/problem/SP122)
+[luogu remote judge SP122](https://www.luogu.com.cn/problem/SP122)
 
 # 思路
 

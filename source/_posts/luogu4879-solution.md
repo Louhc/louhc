@@ -19,7 +19,7 @@ mathjax: true
 
 # LINK
 
-[洛谷P4879](https://www.luogu.org/problem/P4879)
+[洛谷P4879](https://www.luogu.com.cn/problem/P4879)
 
 # 思路I——树状数组+二分
 

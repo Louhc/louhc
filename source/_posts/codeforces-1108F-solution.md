@@ -21,7 +21,7 @@ mathjax: true
 # LINK
 
 [codeforces1108F MST Unification](http://codeforces.com/problemset/problem/1108/F)
-[luogu remote judge CF1108F](https://www.luogu.org/problem/CF1108F)
+[luogu remote judge CF1108F](https://www.luogu.com.cn/problem/CF1108F)
 
 # 思路
 

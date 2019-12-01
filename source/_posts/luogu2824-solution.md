@@ -20,7 +20,7 @@ mathjax: true
 
 # LINK
 
-[洛谷P2824](https://www.luogu.org/problem/P2824)
+[洛谷P2824](https://www.luogu.com.cn/problem/P2824)
 
 # 思路
 

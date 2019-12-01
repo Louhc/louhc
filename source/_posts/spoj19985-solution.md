@@ -21,7 +21,7 @@ mathjax: true
 # LINK
 
 [spoj GCDEX2](https://www.spoj.com/problems/GCDEX2/)
-[luogu remote judge SP19985](https://www.luogu.org/problem/SP19985)
+[luogu remote judge SP19985](https://www.luogu.com.cn/problem/SP19985)
 
 First of all,建议去康康SPOJ原题的数据范围,洛谷没把数据范围搬上来。  
 如果你是大佬但是没有看见原题数据范围,不用往下看我瞎`**`了,直接秒了这题。

@@ -19,7 +19,7 @@ mathjax: true
 
 # LINK
 
-[luogu remote judge CF476A](https://www.luogu.org/problem/CF476A)
+[luogu remote judge CF476A](https://www.luogu.com.cn/problem/CF476A)
 [codeforces476A](http://codeforces.com/problemset/problem/476/A)
 
 # 思路

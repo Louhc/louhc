@@ -18,7 +18,7 @@ mathjax: true
 
 # LINK
 
-[洛谷P2891](https://www.luogu.org/problem/P2891)  
+[洛谷P2891](https://www.luogu.com.cn/problem/P2891)  
 
 # 思路
 
