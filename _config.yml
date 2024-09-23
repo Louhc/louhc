@@ -108,7 +108,7 @@ deploy:
 
 # Pandoc
 pandoc:
-  pandoc_path: C:/Program Files/Pandoc/pandoc.exe
+  pandoc_path: /opt/homebrew/Cellar/pandoc/3.2.1/bin/pandoc
   args:
     - "-f"
     - "markdown"
