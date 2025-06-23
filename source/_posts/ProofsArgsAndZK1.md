@@ -5,6 +5,7 @@ categories: Reading Notes
 tags:
  - crypto
  - zk
+ - PAZK
 keywords: 
 description:
 mathjax: true
@@ -199,8 +200,14 @@ $$H:=\sum_{b_1\in\{0,1\}}\sum_{b_2\in\{0,1\}}\cdots\sum_{b_v\in\{0,1\}}g(b_1,...
 
 $$\sum_{x\in\{0,1\}^n}\phi(x)$$
 
-#SAT 被认为是一个相当困难的问题，甚至求解是否存在 $\phi(x)=1$ 都需要指数时间，但是存在 Verifier 为多项式时间的 IP 解决 #SAT。
+#SAT 被认为是一个相当困难的问题，甚至求解是否存在 $\phi(x)=1$ 都需要指数时间，但是存在多项式时间验证者的交互式证明系统解决 #SAT。
 
 将 $\phi$ 转换为算数电路（arithmetic circuit），将 AND 转换位 $x\cdot y$，将 OR 转换为 $x+y-x\cdot y$，然后就可以使用 sum-check protocol 了，此时 soundness error 为 $S/|\Fld|$，可以令 $|\Fld|=S^4$。
 
-通过 #SAT Problem 可以证明 **IP** = **PSPACE**。
+可以证明 **IP** = **PSPACE**。
+
+---
+
+### The GKR Protocol and Its Efficient Implementation
+
+之前我们关注的问题都是一些困难的问题，如 #SAT，TQBF 等。在这一节中，我们将关注一些更简单的问题，比如 $\mathbf{P}$ 问题（多项式时间），$\mathbf{NC}$ 问题（并行算法），甚至 $\mathbf{L}$ 问题（对数空间）。我们希望 $\Vrf$ 能够更快地验证问题（比起直接计算而言），最好是只比读取输入稍微多花一点时间。另外，我们希望 $\Prv$ 也能有较高的效率，也就是说，如果问题能被随机存取机或者图灵机在 $T$ 时间和 $s$ 空间内解决，那么我们希望 $\Prv$ 能在 $O(T)$ 时间和 $O(s)$ 空间解决问题，或者尽可能接近，至少得是多项式时间的。

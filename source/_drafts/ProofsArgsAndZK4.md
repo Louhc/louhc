@@ -1,15 +1,6 @@
 ---
-title: Proofs, Arguments, and Zero-Knowledge (4)
-author: louhc
-categories: Reading Notes
-date: 2024-07-07 01:32:47
+title: ProofsArgsAndZK4
 tags:
- - crypto
- - mpa
- - zk
-keywords: 
-description:
-mathjax: true
 ---
 
 \newcommand{\Prv}{\mathcal{P}}
@@ -22,7 +13,9 @@ mathjax: true
 \newcommand{\deg}{\text{deg}}
 \newcommand{\poly}{\text{poly}}
 
-# *Proofs, Arguments, and Zero-Knowledge* Reading Notes
+本篇笔记涵盖 [《Proofs, Arguments, and Zero-Knowledge》](https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf) 的**第11章**和**第12章**。
+
+<!-- more -->
 
 ## 11 Zero-Knowledge Proofs and Arguments
 

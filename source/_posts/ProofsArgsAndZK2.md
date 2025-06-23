@@ -5,6 +5,7 @@ categories: Reading Notes
 tags:
  - crypto
  - zk
+ - PAZK
 keywords: 
 description:
 mathjax: true
@@ -44,7 +45,19 @@ Fiat-Shamir 变换是一种在零知识证明领域相当重要且广泛应用�
 
 ## 6 将程序转换为电路
 
-在第4章中，我们提到了 GKR 协议，它是一个关于对算数电路求值的交互式证明协议。但是，现实中人们几乎不会使用算数电路来解决问题，而更偏好用一些高级编程语言如 C++，Python 等。因此，如果想在现实中大规模应用某个协议，我们需要一种技术，将高级编程语言转换为协议能处理的语言（对于 GKR 协议来说就是算术电路）。
+在第4章中，我们提到了 GKR 协议，它是一个关于对算数电路求值的交互式证明协议。但是，现实中人们几乎不会使用算数电路来解决问题，而更偏好用一些高级编程语言如 C++，Python 等。因此，如果想在现实中大规模应用 GKR 协议，我们需要一种技术，将高级编程语言高效地转换为协议能处理的算术电路。
+
+### Turning Computer Programs Into Circuit Satisfiability Instances
+
+在**算术电路可满足性问题（Arithmetic Circuit-SAT）**中，给定电路 $\mathcal{C}$，其输入被划分为：
+
+1. **公开输入** $x$（证明者$\mathcal{P}$与验证者$\mathcal{V}$共同知晓）
+2. **私有证据** $w$（仅$\mathcal{P}$知晓）
+
+对于给定的公开输入 $x$ 和输出 $y$，该问题的判定条件为：
+$$
+\exists w \quad \text{s.t.} \quad \mathcal{C}(x,w) = y
+$$
 
 ---
 
