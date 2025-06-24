@@ -85,3 +85,21 @@ $$
 
 ### A First Succinct Argument for Circuit Satisfiability
 
+我们将通过 GKR 协议+承诺（commitment）的方式构造一个简洁的论证系统。我们之前介绍的 GKR 协议是用于计算电路求值的，但是我们这里的问题是电路可满足性，即证明者证明他知道一个见证 $w$，使得：
+
+$$
+C(x,w)=y
+$$
+
+我们用 $W:\{0,1\}^{1+\log n}\to\mathbb F$ 来表示 $x$ 和 $w$ 的特征函数，$W(0,...)$ 表示 $x$，$W(1,...)$ 表示 $w$。证明者在协议的最开始发送 $\tilde{W}$ 的承诺，从而避免发送整个 $w$。
+
+承诺的构造方法有很多，我们在后面的章节会详细讨论。这里我们利用 Merkle Trees 和 Low Degree Tests 构造一个承诺。
+
+在单独使用 Merkle Tree 时，我们将函数 $f:\mathbb F^{\log n}\to\mathbb F$ 的所有取值作为叶子结点，将根节点 $s$ 作为承诺。但是这样我们无法保证 $s$ 对应的函数是一个多重线性函数，所以我们需要进行 Low Degree Tests。
+
+Low Degree Tests 实现很简单。我们让验证者随机选一个线性函数 $\ell:\mathbb F\to\mathbb F^{\log n}$，要求证明者提供 $f\circ\ell$ 的参数，验证其是一个度数不超过 $\log n$ 的函数，且和 $f$ 保持一致性。分析证明比较复杂，这里不详细讨论。
+
+---
+
+### Knowledge-Soundness
+
