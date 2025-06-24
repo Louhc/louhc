@@ -53,7 +53,7 @@ mathjax: true
 > 
 > 则存在关于 $\mathcal{L}$ 的双证明者交互式证明系统（2-prover MIP）。
 
-需要注意一点，这里每次访问谕示 $\mathcal O$ 都是与之前的访问独立，也就是说 $\mathcal O$ 是“无记忆的”。因此，我们可以将其视为一个**无限证明者**交互式证明协议，$M$ 作为验证者，每次都向一个新的证明者发送一个挑战，也就是说，满足上面条件的语言的集合就是 $\mathbf{MIP}$（我自己的推论，书上没说，但我感觉是对的）。如果我们证明了上面的命题，也就证明了 $\mathbf{MIP}_2=\mathbf{MIP}=\mathbf{MIP}_k(\forall k\geq 2)$（第二个等号基于一个显而易见的结论 $\mathbf{MIP}_2\subseteq\mathbf{MIP}_k\subseteq\mathbf{MIP}$）。这里我用 $\mathbf{MIP}_k$ 来表示拥有 $k$ 证明者交互式证明协议的语言 $\Lang$ 的集合。
+需要注意一点，这里每次访问谕示 $\mathcal O$ 都是与之前的访问独立，也就是说 $\mathcal O$ 是“无记忆的”。因此，我们可以将其视为一个**无限证明者**交互式证明协议，$M$ 作为验证者，每次都向一个新的证明者发送一个挑战，也就是说，满足上面条件的语言的集合就是 $\mathbf{MIP}$。如果我们证明了上面的命题，也就证明了 $\mathbf{MIP}_2=\mathbf{MIP}=\mathbf{MIP}_k(\forall k\geq 2)$（第二个等号基于一个显而易见的结论 $\mathbf{MIP}_2\subseteq\mathbf{MIP}_k\subseteq\mathbf{MIP}$）。这里我用 $\mathbf{MIP}_k$ 来表示拥有 $k$ 证明者交互式证明协议的语言 $\Lang$ 的集合。
 
 2-prover MIP 的构造方法如下：
 

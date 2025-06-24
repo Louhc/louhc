@@ -29,6 +29,8 @@ mathjax: true
 
 Fiat-Shamir 变换是一种在零知识证明领域相当重要且广泛应用的技术，可以将任意公开随机数协议 $\mathcal I$ 转换为一个非交互性的，可以公开被验证的协议 $\mathcal Q$。
 
+---
+
 ### The Random Oracle Model
 
 **随机函数**指的是一种特殊的函数 $R:D\to\{0,1\}^{\kappa}$，对于任意 $x\in D$，$R$ 从 $\{0,1\}^{\kappa}$ 中均匀随机选取它的值 $R(x)$。
@@ -37,7 +39,11 @@ Fiat-Shamir 变换是一种在零知识证明领域相当重要且广泛应用�
 
 现实世界中这样的 ROM 是不存在的，一般会使用一些具体的哈希函数（如 SHA-3 等）来代替。
 
+---
+
 ### The Fiat-Shamir Transformation
+
+---
 
 ### Security of the Transformation
 
@@ -46,6 +52,8 @@ Fiat-Shamir 变换是一种在零知识证明领域相当重要且广泛应用�
 ## 6 将程序转换为电路
 
 在第4章中，我们提到了 GKR 协议，它是一个关于对算数电路求值的交互式证明协议。但是，现实中人们几乎不会使用算数电路来解决问题，而更偏好用一些高级编程语言如 C++，Python 等。因此，如果想在现实中大规模应用 GKR 协议，我们需要一种技术，将高级编程语言高效地转换为协议能处理的算术电路。
+
+---
 
 ### Turning Computer Programs Into Circuit Satisfiability Instances
 

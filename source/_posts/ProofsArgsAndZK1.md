@@ -151,7 +151,7 @@ $$
 
 另外，容易发现，所有的 $\mathcal X_w$ 都是多重线性的，因此 $\tilde{f}$ 也是多重线性的。
 
-我们没有证明 $\tilde{f}$ 的唯一性，但是由于这一性质并不重要，所以略去。
+我们没有证明 $\tilde{f}$ 的唯一性~~，但是由于这一性质并不重要，所以略去。~~，不对，这一性质很重要，不能略去，后面有时间补一补。
 
 </details>
 
@@ -167,11 +167,58 @@ $$
 
 ### The Sum-Check Protocol
 
-给定一个 $v$ 元多项式 $g$，The Sum-Check Protocol 要求证明者提供
+给定一个 $v$ 元多项式 $g:\mathbb F^v\to\mathbb F$，The Sum-Check Protocol 要求证明者提供并证明：
 
 $$H:=\sum_{b_1\in\{0,1\}}\sum_{b_2\in\{0,1\}}\cdots\sum_{b_v\in\{0,1\}}g(b_1,...,b_v)$$
 
-协议过程如下
+证明过程实际上是一个**归纳倒推**的过程。证明者给出一个 $C_1$，然后向验证者证明 $C_1=H$。证明者向验证者发送一个函数 $g_1(X_1)$，声称其为 $g_1(X_1)=\sum_{x_2,...,x_v\in\{0,1\}^{v-1}}g(X_1,x_2,...,x_v)$。此时只需证：
+
+$$
+C_1=g_1(0)+g_1(1)\text{ 且 } g_1(X_1)=\sum_{x_2,...,x_v\in\{0,1\}^{v-1}}g(X_1,x_2,...,x_v)
+$$
+
+前半部分是可以由验证者自行验证的，证明者只需要证明后半部分即可。根据 Schwartz-Zippel Lemma，如果随机选一个 $r_1\leftarrow\mathbb F$，满足
+
+$$
+g_1(r_1)=\sum_{x_2,...,x_v\in\{0,1\}^{v-1}}g(r_1,x_2,...,x_v)
+$$
+
+那么 $g_1(X_1)=\sum_{x_2,...,x_v\in\{0,1\}^{v-1}}g(X_1,x_2,...,x_v)$ 大概率正确。因此验证者可以随机选一个 $r_1$ 并发送给证明者（将 $g_1(r_1)$ 记为 $C_2$，这个值可以由验证者自行计算），证明者只需要证明：
+
+$$
+C_2=\sum_{x_2,...,x_v\in\{0,1\}^{v-1}}g(r_1,x_2,...,x_v)
+$$
+
+我们将 $g(r_1,x_2,...,x_v)$ 写成 $g_{r_1}(x_2,...,x_v)$，上面的式子就可以写成：
+
+$$
+C_2=\sum_{x_2,...,x_v\in\{0,1\}^{v-1}}g_{r_1}(x_2,...,x_v)
+$$
+
+上面的证明过程，我们成功将“证明 $C_1=\sum g$”归纳到“证明 $C_2=\sum g_{r_1}$”，不断应用这样的过程，最终证明者只需要证明 
+
+$$
+C_{v}=\sum_{x_v\in\{0,1\}} g_{r_1,...r_{v-1}}(x_v)
+$$
+
+即
+
+$$
+C_{v}=\sum_{x_v\in\{0,1\}} g(r_1,...r_{v-1},x_v)
+$$
+
+证明者给出一个函数 $g_v(X_v)$，声称其为 $g_v(X_v)=g(r_1,...r_{v-1},X_v)$。验证者检查 $g_v(0)+g_v(1)=C_v$，然后随机生成一个值 $r_v\leftarrow\mathbb F$，并检查
+
+$$
+g_v(r_v)=g(r_1,...,r_v)
+$$
+
+完成证明 QED。
+
+最后一步是否多余呢？明明验证者已经可以直接验证了，直接计算 $g(r_1,...r_{v-1},0)$ 和 $g(r_1,...r_{v-1},1)$ 然后相加，验证是否等于 $C_v$ 就可以了。但是，这样做需要证明者计算函数 $g$ **两次**。而在原来协议的最后一步，验证者需要计算的是 $g_v(0),g_v(1),g(r_1,...,r_v)$，其中 $g_v$ 是**由证明者给出的**，也就是说验证者只需要计算函数 $g$ **一次**，这一性质在后面其他应用使用到 Sum-Check Protocol 时会更加方便。
+
+<details>
+<summary>完整的协议过程</summary>
 
 > - At the start of the protocol, the prover sends a value $C_1$ claimed to equal the value $H$ defined in Equation (4.1).
 > - In the first round, $\Prv$ sends the univariate polynomial $g_1(X_1)$ claimed to equal 
@@ -187,10 +234,11 @@ $$H:=\sum_{b_1\in\{0,1\}}\sum_{b_2\in\{0,1\}}\cdots\sum_{b_v\in\{0,1\}}g(b_1,...
 > - In Round $v$, $\Prv$ sends to $Vrf$ a univariate polynomial $g_v(X_v)$ claimed to equal $g(r_1,...,r_{v−1},X_v)$. $\Vrf$ checks that $g_v$ is a univariate polynomial of degree at most $\deg_v(g)$, rejecting if not, and also checks that $$g_{v−1}(r_{v−1}) = g_v(0)+g_v(1)$$
 > - $\Vrf$ chooses a random element $r_v\in\Fld$ and evaluates $g(r_1,...,r_v)$ with a single oracle query to $g$. $\Vrf$ checks that $g_v(r_v)=g(r_1,...,r_v)$, rejecting if not.
 > - If $\Vrf$ has not yet rejected, $\Vrf$ halts and accepts.
+</details>
 
 ---
 
-### #SAT Problem
+### First Application of Sum-Check: #SAT ∈ IP
 
 一个在变量 $x_1,x_2,...,x_n$ 上的**布尔公式（Boolean Formula）**，指的是一棵二叉树，它的每个叶节点标记着一个随机变量 $x_i$ 或者它的非 $\lnot x_i$，每个非叶节点表示它两个儿子的 AND 或者 OR。树的每个结点也叫作**门（gate）**。布尔公式的大小 $S$ 表示叶节点的数量。
 
@@ -211,3 +259,99 @@ $$\sum_{x\in\{0,1\}^n}\phi(x)$$
 ### The GKR Protocol and Its Efficient Implementation
 
 之前我们关注的问题都是一些困难的问题，如 #SAT，TQBF 等。在这一节中，我们将关注一些更简单的问题，比如 $\mathbf{P}$ 问题（多项式时间），$\mathbf{NC}$ 问题（并行算法），甚至 $\mathbf{L}$ 问题（对数空间）。我们希望 $\Vrf$ 能够更快地验证问题（比起直接计算而言），最好是只比读取输入稍微多花一点时间。另外，我们希望 $\Prv$ 也能有较高的效率，也就是说，如果问题能被随机存取机或者图灵机在 $T$ 时间和 $s$ 空间内解决，那么我们希望 $\Prv$ 能在 $O(T)$ 时间和 $O(s)$ 空间解决问题，或者尽可能接近，至少得是多项式时间的。
+
+GKR 协议完成了上面描述的很多目标，接下来我们将介绍 **GKR 协议**。GKR 协议最好用**计算电路求值问题**来描述。在这个问题中，验证者 $\Vrf$ 和证明者 $\Prv$ 首先商定一个在有限域 $\mathbb F$ 上的扇入为 $2$ 的算术电路 $\mathcal C$，目标是计算 $\mathcal C$ 的输出门（**可能有多个**）的值。
+
+在具体介绍之前，我们需要引入一些符号定义。
+
+> - 假设我们有一个计算电路 $\mathcal C$，其深度为 $d$，层数标记为 $[0,d]$，第 $0$ 层表示输出层，第 $d$ 层表示输入层，$S_i$ 表示第 $i$ 层的门的个数（或者输入的个数）。不妨设 $S_i$ 为 $2$ 的幂，令 $S_i=2^{k_i}$。  
+> - 将第 $i$ 层的门编号为 $[0,S_i)$，定义函数 $W_i:\{0,1\}^{k_i}\to\mathbb F$，其输入为门的编号的二进制表示，输出为门的输出。用 $\widetilde{W}_i$ 表示其多重线性扩展（之前证明了它是存在且唯一的）。  
+> - 定义函数 $\mathrm{in}_{1,i},\mathrm{in}_{2,i}:\{0,1\}^{k_i}\to\mathbb \{0,1\}^{k_{i+1}}$，$\mathrm{in}_{i,1}(a)$ 表示第 $i$ 层的门 $a$ 的第一个输入，$\mathrm{in}_{i,2}(a)$ 表示第二个输入。  
+> - 定义函数 $\mathrm{add}_i,\mathrm{mult}_i:\{0,1\}^{k_i+2k_{i+1}}\to\{0,1\}$，$\mathrm{add}_i(a,b,c)=1$ 当且仅当第 $i$ 层的门 $a$ 是加门且第 $i+1$ 层的门 $b,c$ 的输出是其两个输入。$\mathrm{mult}_i$ 同理。用 $\widetilde{\mathrm{add}}_i,\widetilde{\mathrm{mult}}_i$ 表示它们的多重线性扩展。
+
+GKR 协议同样是归纳倒退的形式。证明者向验证者发送一个函数 $D:\{0,1\}^{k_0}\to\mathbb F$，声称其为 $\mathcal C$ 的输出。也就是说，他需要向验证者证明：
+
+$$
+W_0=D
+$$
+
+自然而然地，我们可以用 Schwartz-Zippel Lemma 将其转换为证明：随机选取一个 $r_0\in\mathbb F^{k_0}$ 并令 $m_0=D(r_0)$，满足
+
+$$
+\widetilde{W}_0(r_0)=m_0
+$$
+
+接下来我们将 $W_0$ 展开：
+
+$$
+W_0(a)=\sum_{b,c}(\mathrm{add}_1(a,b,c)(W_1(b)+W_1(c))+\mathrm{mult}_1(a,b,c)(W_1(b)\cdot W_1(c)))
+$$
+
+由于多重线性扩展的唯一性：
+
+$$
+\widetilde{W}_0(a)=\sum_{b,c}(\widetilde{\mathrm{add}}_1(a,b,c)(W_1(b)+W_1(c))+\widetilde{\mathrm{mult}}_1(a,b,c)(W_1(b)\cdot W_1(c)))
+$$
+
+整理一下，现在证明者需要证明的是：
+
+$$
+\sum_{b,c\in\{0,1\}^{k_1}}(\widetilde{\mathrm{add}}_1(r_0,b,c)(\widetilde{W}_1(b)+\widetilde{W}_1(c))+\widetilde{\mathrm{mult}}_1(r_0,b,c)(\widetilde{W}_1(b)\cdot \widetilde{W}_1(c)))=m_0
+$$
+
+令 $f^{(0)}_{r_0}(b,c)=\widetilde{\mathrm{add}}_1(r_0,b,c)(\widetilde{W}_1(b)+\widetilde{W}_1(c))+\widetilde{\mathrm{mult}}_1(r_0,b,c)(\widetilde{W}_1(b)\cdot \widetilde{W}_1(c))$，可以将上式写为：
+
+$$
+\sum_{b,c\in\{0,1\}^{k_1}}f^{(0)}_{r_0}(b,c)=m_0
+$$
+
+这是一个求和式，可以应用 Sum-Check Protocol 将问题转换为在一个随机点求值。验证者随机选取 $b^{*},c^{*}\leftarrow\{0,1\}^{k_1}$，证明者发送一个值 $p_0$，声称 $p_0=f^{(0)}_{r_0}(b^{*},c^{*})$。也就是说，现在需要证明的是：
+
+$$
+\widetilde{\mathrm{add}}_1(r_0,b^{*},c^{*})(\widetilde{W}_1(b^{*})+\widetilde{W}_1(c^{*}))+\widetilde{\mathrm{mult}}_1(r_0,b^{*},c^{*})(\widetilde{W}_1(b^{*})\cdot \widetilde{W}_1(c^{*}))=p_0
+$$
+
+其中 $\widetilde{\mathrm{add}}_1(r_0,b^{*},c^{*})$ 和 $\widetilde{\mathrm{mult}}_1(r_0,b^{*},c^{*})$ 都是验证者可以自行计算的，证明者只需要提供 $\widetilde{W}_1(b^{*})$ 和 $\widetilde{W}_1(c^{*})$ 的值 $z_1$ 和 $z_2$，并证明：
+
+$$
+\widetilde{W}_1(b^{*})=z_1\text{ 且 }\widetilde{W}_1(c^{*})=z_2
+$$
+
+这里我们已经几乎要可以归纳到下一层了，但是如果这里需要证明两个值，下一层就需要证明四个值，直到最后一层证明 $2^{d}$ 个值，这是我们无法接受的指数增长。但是我们可以使用一个技巧，将证明两个值转换为证明一个值。定义线性函数 $\ell:\mathbb F\to\mathbb F^{k_1}$，使得 $\ell(0)=b^{*}$，$\ell(1)=c^{*}$，该函数对于任意一组 $b^{*},c^{*}$ 都是存在且唯一的。证明者向验证者发送函数 $q$，声称 $q=\widetilde{W}_1\circ \ell$。验证者检查 $q(0)=z_1$ 和 $q(1)=z_2$，然后随机选取一个值 $r^{*}\leftarrow\mathbb F$，并令 $r_{1}=\ell(r^{*})$，$m_1=q(r^{*})$，根据 Schwartz-Zippel Lemma，证明者只需要证明：
+
+$$
+\widetilde{W}_1(r_1)=m_1
+$$
+
+现在我们归纳到了第 $1$ 层，按照相同的流程不断迭代，最终证明者只需要证明：
+
+$$
+\widetilde{W}_d(r_d)=m_d
+$$
+
+这是可以由验证者根据电路输入自行验证的，至此证明完毕 QED。
+
+<details>
+<summary>完整的协议过程</summary>
+
+> Description of the GKR protocol, when applied to a layered arithmetic circuit $\mathcal{C}$ of depth $d$ and fan-in two on input $x\in\mathbb{F}^{n}$. Throughout, $k_{i}$ denotes $\log_{2}(S_{i})$ where $S_{i}$ is the number of gates at layer $i$ of $\mathcal{C}$.  
+>
+> - At the start of the protocol, $\mathcal{P}$ sends a function $D\colon\{0,1\}^{k_{0}}\to\mathbb{F}$ claimed to equal $W_{0}$ (the function mapping output gate labels to output values).
+> - $\mathcal{V}$ picks a random $r_{0}\in\mathbb{F}^{k_{0}}$ and lets $m_{0}\leftarrow\widetilde{D}(r_{0})$. The remainder of the protocol is devoted to confirming that $m_{0}=\widetilde{W}_{0}(r_{0})$.
+>
+> - **For** $i=0,1,\ldots,d-1$:
+>
+>   - Define the $(2k_{i+1})$-variate polynomial
+    $$f^{(i)}_{r_{i}}(b,c):=\widetilde{\mathrm{add}}_{i}(r_{i},b,c)\left(\widetilde{W}_{i+1}(b)+\widetilde{W}_{i+1}(c)\right)+\widetilde{\mathrm{mult}}_{i}(r_{i},b,c)\left(\widetilde{W}_{i+1}(b)\cdot\widetilde{W}_{i+1}(c)\right).$$
+>   - $\mathcal{P}$ claims that $\sum_{b,c\in\{0,1\}^{k_{i+1}}}f^{(i)}_{r_{i}}(b,c)=m_{i}$.
+>   - So that $\mathcal{V}$ may check this claim, $\mathcal{P}$ and $\mathcal{V}$ apply the sum-check protocol to $f^{(i)}_{r_{i}}$, up until $\mathcal{V}$'s final check in that protocol, when $\mathcal{V}$ must evaluate $f^{(i)}_{r_{i}}$ at a randomly chosen point $(b^{*},c^{*})\in\mathbb{F}^{k_{i+1}}\times\mathbb{F}^{k_{i+1}}$. See Remark (a) at the end of this codebox.
+>   - Let $\ell$ be the unique line satisfying $\ell(0)=b^{*}$ and $\ell(1)=c^{*}$. $\mathcal{P}$ sends a univariate polynomial $q$ of degree at most $k_{i+1}$ to $\mathcal{V}$, claimed to equal $\widetilde{W}_{i+1}$ restricted to $\ell$.
+>   - $\mathcal{V}$ now performs the final check in the sum-check protocol, using $q(0)$ and $q(1)$ in place of $\widetilde{W}_{i+1}(b^{*})$ and $\widetilde{W}_{i+1}(c^{*})$. See Remark (b) at the end of this codebox.
+>   - $\mathcal{V}$ chooses $r^{*}\in\mathbb{F}$ at random and sets $r_{i+1}=\ell(r^{*})$ and $m_{i+1}\gets q(r_{i+1})$.
+>
+> - $\mathcal{V}$ checks directly that $m_{d}=\widetilde{W}_{d}(r_{d})$ using Lemma 3.8. Note that $\widetilde{W}_{d}$ is simply $\widetilde{x}$, the multilinear extension of the input $x$ when $x$ is interpreted as the evaluation table of a function mapping $\{0,1\}^{\log n}\to\mathbb{F}$.  
+>
+> **Remark a.** Note that $\mathcal{V}$ does not actually know the polynomial $f^{(i)}_{r_{i}}$, because $\mathcal{V}$ does not know the polynomial $\widetilde{W}_{i+1}$ that appears in the definition of $f^{(i)}_{r_{i}}$. However, the sum-check protocol does not require $\mathcal{V}$ to know anything about the polynomial to which it is being applied, until the very final check in the protocol (see Remark 4.2).  
+> **Remark b.** We assume here that for each layer $i$ of $\mathcal{C}$, $\mathcal{V}$ can evaluate the multilinear extensions $\widetilde{\mathrm{add}}_{i}$ and $\widetilde{\mathrm{mult}}_{i}$ at the point $(r_{i},b^{*},c^{*})$ in polylogarithmic time. Hence, given $\widetilde{W}_{i+1}(b^{*})$ and $\widetilde{W}_{i+1}(c^{*})$, $\mathcal{V}$ can quickly evaluate $f^{(i)}_{r_{i}}(b^{*},c^{*})$ and thereby perform its final check in the sum-check protocol applied to $f_{r_1}^{(i)}$.
+
+</details>
