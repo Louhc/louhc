@@ -30,6 +30,8 @@ mathjax: true
 
 **Multi-prover interactive proofs (MIPs)** 允许验证者 $\mathcal V$ 与多个不被信任的证明者交互，并假设证明者之间无法交流从 $\mathcal V$ 收到的信息。
 
+---
+
 ### MIPs: Definition and Basic Results
 
 **定义 8.1（MIP）** 关于语言 $\Lang\subseteq\{0,1\}^*$ 的 **k证明者交互式证明协议**（k-prover interactive proof protocol）涉及 $k+1$ 方，包括 $1$ 个 **PPT** 验证者和 $k$ 个证明者。交互过程产生一个协议交互记录（transcript） $t = (\Vrf(r),\Prv_1,...,\Prv_k)(x)$，其中 $r$ 表示 $\Vrf$ 的内部随机性。验证者最后的输出为 $\out(\Vrf, x,r,\Prv_1,...,\Prv_k)$。
@@ -65,13 +67,15 @@ mathjax: true
 
 这里我想到了一个问题，那就是由于会重复多次，$\Prv_2$ 会不会根据之前重复时的交互记录，生成下一轮重复的回答呢？这样做应当是没有意义的，因为每次重复都是**独立**的，$\Prv_2$ 得到的挑战也是独立的。但是我暂时没有想到一个正式的证明。
 
+---
+
 ### An Efficient MIP For Circuit Satisfaction
 
-（skip）
+---
 
 ### A Succinct Argument for Deep Circuits
 
-（skip）
+---
 
 ### Extension from Circuit-SAT to R1CS-SAT
 
@@ -85,16 +89,21 @@ $$\langle a_i,z\rangle\cdot\langle b_i,z\rangle=\langle c_i,z\rangle$$
 
 "rank-one" 表示它只包含了一次关于两个 $z$ 中元素的线性组合的乘积。
 
-（skip）
+（to be done）
 
+---
 
 ### MIP=NEXP
 
+---
+
 ## 9 概率可验证证明与简洁论证
+
+---
 
 ### PCPs: Definition and Relationship to MIPs
 
-**定义 9.1** 对于语言 $\mathcal{L} \subseteq \{0,1\}^*$ 的**概率可验证证明系统**（Probabilistically Checkable Proof System, PCP）包含一个**概率多项式时间验证者** $\mathcal{V}$，输入 $x$ 并拥有对证明字符串 $\pi \in \Sigma^\ell$ 的谕示访问权限。
+**定义 9.1** 关于语言 $\mathcal{L} \subseteq \{0,1\}^*$ 的**概率可验证证明系统**（Probabilistically Checkable Proof System, PCP）包含一个**概率多项式时间验证者** $\mathcal{V}$，输入 $x$ 并拥有对证明字符串 $\pi \in \Sigma^\ell$ 的谕示访问权限。
 
 该系统为有效的，当且仅当满足：
 
@@ -104,9 +113,22 @@ $$\langle a_i,z\rangle\cdot\langle b_i,z\rangle=\langle c_i,z\rangle$$
 
 PCP 和 MIP 紧密相关：**它们之间可以相互转换**。当然，这样的转换也会伴随着巨大的代价。
 
+**引理 9.2** 假设语言 $\mathcal{L} \subseteq \{0,1\}^{*}$ 存在一个 $k$-证明者的 MIP，其中验证者 $\mathcal{V}$ 向每个证明者发送恰好一条消息（每条消息最多包含 $r_Q$ 比特），且每个证明者在响应中最多发送 $r_A$ 比特。那么，$\mathcal{L}$ 存在一个基于字母表 $\Sigma$（大小为 $2^{r_A}$）的 $k$-查询 PCP 系统，其证明长度为 $k \cdot 2^{r_Q}$，且具有与 MIP 相同的验证者运行时间、完备性错误和可靠性错误。
+
+<details>
+<summary>证明概要</summary>
+对于 MIP 中的每个证明者 $\mathcal{P}_i$，PCP 证明会为 $\mathcal{V}$ 可能发送给 $\mathcal{P}_i$ 的每条消息预留一个条目。该条目等于证明者对该消息的响应。PCP 验证者通过模拟 MIP 验证者的行为，将 PCP 证明条目视为 MIP 中证明者的回答。
+</details>
+
+---
+
 ### Compiling a PCP Into a Succinct Argument
 
-## 10 Interactive Oracle Proofs
+---
+
+## 10 交互式预言机证明
+
+---
 
 ### IOP 定义
 
