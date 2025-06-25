@@ -1,5 +1,6 @@
 ---
 title: Proofs, Arguments, and Zero-Knowledge (1)
+date: 2025-06-19 20:30:53
 author: louhc
 categories: Reading Notes
 tags:

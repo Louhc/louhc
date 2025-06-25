@@ -71,6 +71,14 @@ mathjax: true
 
 ### An Efficient MIP For Circuit Satisfaction
 
+对于一个**低深度**电路，有一个简单的双证明者交互证明系统。其在第7章提到的系统基础上，将第二个证明者作为多项式承诺。具体来说，验证者和第一个证明者执行 GKR 协议，证明 $C(x,w)=y$，原来的协议中验证者要求证明者提供 $\widetilde{w}$ 的承诺并打开 $\widetilde{w}(r)$ 的值，现在验证者直接要求第二个证明者提供 $\widetilde{w}(r)$ 的值，并且进行低次测试（Low Degree Tests）。
+
+如果低次测试使用 point-versus-line 测试，验证者随机选一条 $\mathbb F^{\log n}$ 上的包含 $r$ 的直线 $\lambda$，要求第二个证明者提供一个等于 $\widetilde{w}\circ\lambda$ 的单变量 $\log n$ 次多项式，验证者通过该多项式计算 $\widetilde{w}(r)$ 并与第一个证明者声称的 $\widetilde{w}(r)$ 进行比对。 
+
+该协议的一个缺点在于时间和深度成正比（$O(d\log S)$）。更主要的缺点是证明大小很大。接下来我们将介绍一个更高效的协议。
+
+
+
 ---
 
 ### A Succinct Argument for Deep Circuits
@@ -126,6 +134,26 @@ PCP 和 MIP 紧密相关：**它们之间可以相互转换**。当然，这样�
 
 ---
 
+### A PCP of Quasilinear Length for Arithmetic Circuit Satisfiability
+
+**引理 9.3** 设 $\mathbb F$ 是一个域，$H \subseteq \mathbb F$。对于 $d \geq |H|$，一个 $\mathbb F$ 上的 $d$ 次单变量多项式 $g$ 在 $H$ 上消失（即 $g(\alpha) = 0$ 对所有 $\alpha \in H$ 成立）当且仅当多项式 $Z_H(t) := \prod_{\alpha \in H}(t - \alpha)$ 整除 $g$。换言之，当且仅当存在一个次数不超过 $d - |H|$ 的多项式 $h^*$，使得 $g = Z_H \cdot h^*$。
+
+<details>
+<summary>证明</summary>
+
+**方向 1**（充分性）：  
+若 $g = Z_H \cdot h^*$，则对任意 $\alpha \in H$，有  
+$$
+g(\alpha) = Z_H(\alpha) \cdot h^*(\alpha) = 0 \cdot h^*(\alpha) = 0,
+$$
+因此 $g$ 在 $H$ 上消失。  
+
+**方向 2**（必要性）：  
+若 $g$ 在 $H$ 上消失，则对每个 $\alpha \in H$，多项式 $(t - \alpha)$ 整除 $g(t)$。因此，$Z_H(t)$ 作为这些线性因子的乘积，必然整除 $g$。  
+</details>
+
+---
+
 ## 10 交互式预言机证明
 
 ---
@@ -164,23 +192,73 @@ $$
 
 而 $h^m$ 是 $h^mH$ 的生成元，且 $h^mH$ 也是乘法子群，因此 $\sum_{j=1}^{n}h^{j\cdot m}=0$。
 
-因此，对于任意多项式 $q$，在 $H$ 上求和时，次数 $\geq1$ 的项都会被消掉，只剩下常数项，即 $q(0)。因此 $\sum_{a\in H}q(a)=nq(0)$
+因此，对于任意多项式 $q$，在 $H$ 上求和时，次数 $\geq1$ 的项都会被消掉，只剩下常数项，即 $q(0)$。因此 $\sum_{a\in H}q(a)=nq(0)$
 </details>
 
-对于 $\mathbb F$ 的乘法子群 $H$，定义 $Z_H(X)=X^{n}-1$ 表示其零化多项式。
+对于 $\mathbb F$ 的乘法子群 $H$，定义 $\mathbb Z_H(X)=X^{n}-1$ 表示其零化多项式。
 
 **引理 10.2** $\sum_{a\in H}p(a)=0$ 当且仅当存在多项式 $h^{*}(x)$ 和 $f(x)$，$\mathrm{deg}(h^{*})\leq D-n$ 且 $\mathrm{deg}(f)<n-1$，使得 $$p(X)=h^{*}(X)\cdot Z_H(X)+f(X)\cdot X$$
 
 <details>
 <summary>证明</summary>
-$$
-\begin{aligned}
-\sum_{a\in H}p(a)=0&\Leftrightarrow p(0)=0\\
-&\Leftrightarrow p(X)=h^{*}(X)\cdot Z_H(X)+f(X)\cdot X
-\end{aligned}
-$$
+
+如果 $p(X)=h^{*}(X)\cdot \mathbb Z_H(X)+f(X)\cdot X$，根据零化多项式的性质，可得 $\sum_{a\in H}p(a)=\sum_{a\in H}f(a)\cdot X$。而 $f(X)\cdot X$ 的次数小于 $n$，而且 $f(0)\cdot 0=0$，因此有 $\sum_{a\in H}p(a)=0$。
+
+另一方面，如果 $\sum_{a\in H}p(a)=0$，将 $p$ 对 $\mathbb Z_H$ 取模得到 $r$，即 $p(X)=h^{*}(X)\cdot \mathbb Z_H(X)+r(X)$，因此 $\sum_{a\in H}p(a)=\sum_{a\in H}r(a)$。其中 $r(X)$ 的次数小于 $n$，因此 $r(0)=0$，进而可以推出 $r$ 的常数项为 $0$，即 $r(X)=f(X)\cdot X$。
+
 </details>
+
+我们可以用`引理 10.2`来构造一个多项式 IOP，证明一个单变量函数在 $H$ 上求和为 $0$。证明者给出函数 $h^{*}$ 和 $f$ 的承诺，验证者随机选取 $r\leftarrow\mathbb F$，验证 $p(r)=h^{*}(r)\cdot \mathbb Z_H(r)+f(r)\cdot r$。可靠性错误概率为 $\frac{\max\{n,D\}}{|\mathbb F|}$。我们称这个协议为**单变量求和协议（univariant sum-check protocol）**。
+
+接下来我们将利用单变量求和协议构建一个证明 R1CS-SAT 的多项式 IOP。对于矩阵 $A,B,C\in\mathbb F^{m\times n}$ 证明者需要证明他直到一个 $z$ 使得 $$Az\circ Bz=Cz$$ 为了简化问题我们假设 $m=n$，假设存在一个 $\mathbb F$ 的乘法子群 $H$ 大小恰好为 $n$。
+
+令 $\hat{z}$ 为 $z$ 的单变量多项式扩展（拉格朗日插值），其度数不超过 $n-1$ 且 $\forall h\in H,\hat{z}(h)=z_h$。类似地，对于 $z_A=Az,z_B=Bz,z_C=Cz$，记 $\hat{z}_A,\hat{z}_B,\hat{z}_C$ 为它们的扩展。
+
+证明者给出 $\hat{z},\hat{z}_A,\hat{z}_B,\hat{z}_C$ 的承诺，验证者需要检查两部分：
+
+$$
+\forall h\in H:\hat{z}_A(h)\cdot\hat{z}_B(h)=\hat{z}_C(h)
+$$
+
+以及
+
+$$
+\forall h\in H,M\in\{A,B,C\}:\hat{z}_M(h)=\sum_{j\in H}M_{h,j}\cdot\hat{z}(j)
+$$
+
+**第一部分** 根据 `引理 9.3`，这个式子等价于存在一个度数不超过 $n$ 的函数 $h^{*}$，使得 
+$$
+\hat{z}_A(X)\cdot\hat{z}_B(X)-\hat{z}_C(X)=h^{*}(X)\cdot\mathbb Z_H(X)
+$$ 
+证明者给出 $h^*(X)$ 的承诺，验证者随机选取一个 $r\leftarrow\mathbb F$，检查
+$$
+\hat{z}_A(r)\cdot\hat{z}_B(r)-\hat{z}_C(r)=h^{*}(r)\cdot\mathbb Z_H(r)
+$$
+由于 $\mathbb Z_H$ 的稀疏性，验证者可以自行计算 $\mathbb Z_H(r)$。
+
+**第二部分** 令 $\hat{M}(x,y)$ 表示 $M_{x,y}$ 的双变量低度数扩展，即 $\hat{M}(x,y)=M_{x,y}$ 且 $\hat{M}$ 的度数不超过 $n$，这样的多项式是**唯一的**。另外，由于 $\hat{z}$ 和 $\hat{z}_M$ 的唯一性，第二部分的式子等价于：
+$$
+\hat{z}_M(X)=\sum_{j\in H}\hat{M}(X,j)\hat{z}(j)
+$$
+验证者随机选取 $r\leftarrow\mathbb F$，检查
+$$
+\hat{z}_M(r)=\sum_{j\in H}\hat{M}(r,j)\hat{z}(j)
+$$
+令 
+$$
+q(Y)=\hat{M}(r',Y)\hat{z}(Y)-\hat{z}_M(r')\cdot|H|^{-1}
+$$
+注意到 $\sum_{j\in H}q(Y)=\sum_{j\in H}\hat{M}(r,j)\hat{z}(j)-\hat{z}_M(r)$，验证者只需检查
+$$
+\sum_{j\in H}q(Y)=0
+$$
+此时应用单变量求和协议，最终验证者只需要随机选取 $r''\leftarrow\mathbb F$，确认 $\hat{z}(r''),\hat{z}_M(r')$ 和 $\hat{M}(r',r'')$ 的取值，即可完成证明。
+
+还剩下一个问题，验证者如何快速计算 $\hat{M}(r',r'')$？
+
+（to be done）
 
 ---
 
 ### FRI and Associated Polynomial Commitments
+
