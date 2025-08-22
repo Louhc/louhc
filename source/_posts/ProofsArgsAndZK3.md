@@ -187,21 +187,45 @@ PCP 和 MIP 紧密相关：**它们之间可以相互转换**。当然，这样�
 
 ### A PCP of Quasilinear Length for Arithmetic Circuit Satisfiability
 
-**引理 9.3** 设 $\mathbb F$ 是一个域，$H \subseteq \mathbb F$。对于 $d \geq |H|$，一个 $\mathbb F$ 上的 $d$ 次单变量多项式 $g$ 在 $H$ 上消失（即 $g(\alpha) = 0$ 对所有 $\alpha \in H$ 成立）当且仅当多项式 $Z_H(t) := \prod_{\alpha \in H}(t - \alpha)$ 整除 $g$。换言之，当且仅当存在一个次数不超过 $d - |H|$ 的多项式 $h^*$，使得 $g = Z_H \cdot h^*$。
+#### Step 1: Reduce to checking that a polynomial vanishes on a designated subspace
+
+首先，将声明“$M(x)=y$”转变为一个等价的电路可满足性问题 $\{\mathcal C,x,y\}$，证明者声称知道一个低次多项式 $Z$ 是一个正确的计算轨迹 $W$ 的扩展。然后像 MIP 一样，找到一个多项式 $g_{x,y,Z}$ 使得
+$$
+\forall a\in H:g_{x,y,Z}(a)=0\Longleftrightarrow Z\text{ extends a correct transcript for }\{\mathcal C,x,y\}
+$$
+
+#### Step 2: Reduce to Checking that a Related Polynomial is Low-Degree
+
+检查 $g_{x,y,W}$ 是否在 $H$ 上消失的过程和 MIP 十分类似。MIP 中我们检查了一个*多重线性多项式*是否在 $\{0,1\}^{3k}$ 消失，现在我们需要检查一个*单变量多项式*是否在一个特定的集合 $H$ 上消失。我们需要用到下面的引理：
+
+**引理 9.3** 设 $\mathbb F$ 是一个域，$H \subseteq \mathbb F$。对于 $d \geq |H|$，一个 $\mathbb F$ 上的 $d$ 次单变量多项式 $g$ 在 $H$ 上消失（即 $g(\alpha) = 0$ 对所有 $\alpha \in H$ 成立）当且仅当多项式 $\mathbb Z_H(t) := \prod_{\alpha \in H}(t - \alpha)$ 整除 $g$。换言之，当且仅当存在一个次数不超过 $d - |H|$ 的多项式 $h^*$，使得 $g = \mathbb Z_H \cdot h^*$。
 
 <details>
 <summary>证明</summary>
 
 **方向 1**（充分性）：  
-若 $g = Z_H \cdot h^*$，则对任意 $\alpha \in H$，有  
+若 $g = \mathbb Z_H \cdot h^*$，则对任意 $\alpha \in H$，有  
 $$
-g(\alpha) = Z_H(\alpha) \cdot h^*(\alpha) = 0 \cdot h^*(\alpha) = 0,
+g(\alpha) = \mathbb Z_H(\alpha) \cdot h^*(\alpha) = 0 \cdot h^*(\alpha) = 0,
 $$
 因此 $g$ 在 $H$ 上消失。  
 
 **方向 2**（必要性）：  
-若 $g$ 在 $H$ 上消失，则对每个 $\alpha \in H$，多项式 $(t - \alpha)$ 整除 $g(t)$。因此，$Z_H(t)$ 作为这些线性因子的乘积，必然整除 $g$。  
+若 $g$ 在 $H$ 上消失，则对每个 $\alpha \in H$，多项式 $(t - \alpha)$ 整除 $g(t)$。因此，$\mathbb Z_H(t)$ 作为这些线性因子的乘积，必然整除 $g$。  
 </details>
+
+因此证明字符串只需要证明存在一个度数不超过 $d-|H|$ 的多项式 $h^{*}(z)$，使得 $g_{x,y,Z}(z)=\mathbb Z_H(z)\cdot h^{*}(z)$。如果 $\frac{|\mathbb F|}{|H|}$ 足够大，那么验证者就可以随机选取一个 $r\leftarrow\mathbb F$，检查 $$g_{x,y,Z}(r)=\mathbb Z_H(r)\cdot h^{*}(r)$$ 要证明这个式子成立，证明字符串 $\pi$ 需要包含四部分：
+
+1. 对所有 $z\in\mathbb F$，$Z(z)$ 的取值；
+2. $Z$ 的次数不超过 $|H|-1$ 的证明 $\pi_Z$；
+3. 对所有 $z\in\mathbb F$，$h^{*}(z)$ 的取值；
+4. $h^{*}(z)$ 的次数不超过 $d-|H|$ 的证明 $\pi_{h^{*}}$。
+
+验证者对 $Z$ 进行常数次查询后，可以在准线性时间内计算 $g_{x,y,Z}(r)$；可以直接查询 $h^{*}(r)$ 的取值；可以在多对数时间内计算 $\mathbb Z_H(r)$。
+
+#### Step 3: A PCP for Reed-Solomon Testing
+
+PCP构造的核心在于第三步——验证单变量多项式是否为低次多项式。这一任务在文献中被称为**里德-所罗门测试（Reed-Solomon testing）**，因为 RS 码的码字正是由低次单变量多项式的求值结果构成的。
 
 ---
 
