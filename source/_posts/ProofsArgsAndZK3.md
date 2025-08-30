@@ -243,15 +243,23 @@ PCP构造的核心在于第三步——验证单变量多项式是否为低次�
 
 ### Polynomial IOPs and Associated Succinct Arguments
 
-在一个标准的 IOP 中，证明者发送的消息是字符串，但是在多项式 IOP 中，证明者发送的第 $i$ 条消息是函数 $h_i$，其度数不超过 $d_i$。在这章我们假设 $h_i$ 是单变量的，但是它可以是多变量的。
+在一个**标准 IOP** 中，证明者发送的消息是字符串，但是在**PIOP（Polynomial IOP）** 中，证明者发送的第 $i$ 条消息是函数 $h_i$，其度数不超过 $d_i$。在这章我们假设 $h_i$ 是单变量的（实际上可以拓展到多变量的）。
 
 我们假设 $h_i$ 的参数很多，也就是说验证者无法读入所有的参数，只能对任意一点进行求值，即发送 $r$，得到 $h_i(r)$。
+
+通过使用标准 IOP，我们可以实现 PCS（Polynomial Commitment Scheme）。将 PIOP 与 PCS 结合，我们就可以转换为一个标准 IOP；然后就可以通过 [BCS16] 中的方法将其转换为简介论证。总而言之，我们可以通过如下三步得到一个 SNARK：
+
+1. 设计一个计算 R1CS 可满足性或电路可满足性的 public-coin PIOP；
+2. 将 $h_i$ 替换为一个 PCS，得到一个 public-coin 交互性简介论证；
+3. 用 Fiat-Shamir 移除交互。
+
+**效率瓶颈** 在上面的三步模式中，证明者需要：(a) 计算 $h_i$ 并用 PCS 对其进行承诺；(b) 回应验证者的求值请求并计算证明；(c) 计算 PIOP 中的其他消息。通常证明者的瓶颈在于 (a) 和 (b)，当 $h_i$ 是单变量多项式时，证明时间至少和 R1CS 一样大，因此我们的一个主要目标就是让 $d_i$ 的大小和 R1CS 的大小成线性关系。至于证明大小和验证时间，(b) 中的验证通常成为瓶颈，我们的一个主要目标就是尽量减少求值的次数。
 
 ---
 
 ### A Polynomial IOP for R1CS-satisfiability
 
-**事实 10.1** 设 $F$ 是一个有限域，$H$ 是 $F$ 的一个大小为 $n$ 的乘法子群。那么对于任意次数小于 $|H| = n$ 的多项式 $q$，有 $\sum_{a \in H} q(a) = q(0)\cdot|H|$。由此可得，$\sum_{a \in H} q(a) = 0$ 当且仅当 $q(0) = 0$。  
+**事实 10.1** 设 $\mathbb F$ 是一个有限域，$H$ 是 $\mathbb F$ 的一个大小为 $n$ 的乘法子群。那么对于任意次数小于 $|H| = n$ 的多项式 $q$，有 $\sum_{a \in H} q(a) = q(0)\cdot|H|$。由此可得，$\sum_{a \in H} q(a) = 0$ 当且仅当 $q(0) = 0$。  
 
 <details>
 <summary>证明</summary>
@@ -259,7 +267,7 @@ PCP构造的核心在于第三步——验证单变量多项式是否为低次�
 
 对比等式的两边，可以发现 $X^{n-1}$ 的系数 $-\sum_{a\in H}a=0$。
 
-令 $q:X\to X^m$（$1<m<n$） 表示任意单项式。由于有限域的乘法子群是循环群，可以将 $H$ 表示为 $H=\{h,...,h^{n}\}$。因此
+令 $q(X)=X^m$（$1<m<n$） 表示任意**单项式**。由于有限域的乘法子群是循环群，可以将 $H$ 表示为 $H=\{h,...,h^{n}\}$。因此
 
 $$
 \sum_{a\in H}q(a)=\sum_{j=1}^{n}h^{j\cdot m}
@@ -267,7 +275,8 @@ $$
 
 而 $h^m$ 是 $h^mH$ 的生成元，且 $h^mH$ 也是乘法子群，因此 $\sum_{j=1}^{n}h^{j\cdot m}=0$。
 
-因此，对于任意多项式 $q$，在 $H$ 上求和时，次数 $\geq1$ 的项都会被消掉，只剩下常数项，即 $q(0)$。因此 $\sum_{a\in H}q(a)=nq(0)$
+因此，对于任意多项式 $q$，在 $H$ 上求和时，次数 $\geq1$ 的项都会被消掉，只剩下常数项，即 $q(0)$。因此 $\sum_{a\in H}q(a)=nq(0)$。  
+$\blacksquare$
 </details>
 
 对于 $\mathbb F$ 的乘法子群 $H$，定义 $\mathbb Z_H(X)=X^{n}-1$ 表示其零化多项式。
@@ -283,9 +292,9 @@ $$
 
 </details>
 
-我们可以用`引理 10.2`来构造一个多项式 IOP，证明一个单变量函数在 $H$ 上求和为 $0$。证明者给出函数 $h^{*}$ 和 $f$ 的承诺，验证者随机选取 $r\leftarrow\mathbb F$，验证 $p(r)=h^{*}(r)\cdot \mathbb Z_H(r)+f(r)\cdot r$。可靠性错误概率为 $\frac{\max\{n,D\}}{|\mathbb F|}$。我们称这个协议为**单变量求和协议（univariant sum-check protocol）**。
+我们可以用`引理 10.2`来构造一个 PIOP，证明一个单变量函数在 $H$ 上求和为 $0$。证明者给出函数 $h^{*}$ 和 $f$ 的承诺，验证者随机选取 $r\leftarrow\mathbb F$，验证 $p(r)=h^{*}(r)\cdot \mathbb Z_H(r)+f(r)\cdot r$。可靠性错误概率为 $\frac{\max\{n,D\}}{|\mathbb F|}$。我们称这个协议为**单变量求和协议（univariant sum-check protocol）**。
 
-接下来我们将利用单变量求和协议构建一个证明 R1CS-SAT 的多项式 IOP。对于矩阵 $A,B,C\in\mathbb F^{m\times n}$ 证明者需要证明他直到一个 $z$ 使得 $$Az\circ Bz=Cz$$ 为了简化问题我们假设 $m=n$，假设存在一个 $\mathbb F$ 的乘法子群 $H$ 大小恰好为 $n$。
+接下来我们将利用单变量求和协议构建一个证明 R1CS-SAT 的 PIOP。对于矩阵 $A,B,C\in\mathbb F^{m\times n}$ 证明者需要证明他直到一个 $z$ 使得 $$Az\circ Bz=Cz$$ 为了简化问题我们假设 $m=n$，假设存在一个 $\mathbb F$ 的乘法子群 $H$ 大小恰好为 $n$。
 
 令 $\hat{z}$ 为 $z$ 的单变量多项式扩展（拉格朗日插值），其度数不超过 $n-1$ 且 $\forall h\in H,\hat{z}(h)=z_h$。类似地，对于 $z_A=Az,z_B=Bz,z_C=Cz$，记 $\hat{z}_A,\hat{z}_B,\hat{z}_C$ 为它们的扩展。
 
@@ -315,15 +324,15 @@ $$
 $$
 \hat{z}_M(X)=\sum_{j\in H}\hat{M}(X,j)\hat{z}(j)
 $$
-验证者随机选取 $r\leftarrow\mathbb F$，检查
+验证者随机选取 $r'\leftarrow\mathbb F$，检查
 $$
-\hat{z}_M(r)=\sum_{j\in H}\hat{M}(r,j)\hat{z}(j)
+\hat{z}_M(r')=\sum_{j\in H}\hat{M}(r',j)\hat{z}(j)
 $$
 令 
 $$
 q(Y)=\hat{M}(r',Y)\hat{z}(Y)-\hat{z}_M(r')\cdot|H|^{-1}
 $$
-注意到 $\sum_{j\in H}q(Y)=\sum_{j\in H}\hat{M}(r,j)\hat{z}(j)-\hat{z}_M(r)$，验证者只需检查
+注意到 $\sum_{j\in H}q(Y)=\sum_{j\in H}\hat{M}(r',j)\hat{z}(j)-\hat{z}_M(r')$，验证者只需检查
 $$
 \sum_{j\in H}q(Y)=0
 $$
@@ -336,4 +345,8 @@ $$
 ---
 
 ### FRI and Associated Polynomial Commitments
+
+---
+
+### Ligero and Brakedown Polynomial Commitments
 
